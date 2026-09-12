@@ -18,7 +18,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -29,6 +31,30 @@ button {
   min-height: 38px;
   padding: 0 12px;
   cursor: pointer;
+}
+
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #172033;
+  background: #ffffff;
+}
+
+select {
+  min-height: 42px;
+}
+
+textarea {
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .app-shell {
@@ -269,5 +295,417 @@ input {
 
   .field-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 指标提示 ---------- */
+
+.metric-card {
+  display: grid;
+  align-content: start;
+}
+
+.metric-hint {
+  color: #94a3b8;
+  font-size: 12px;
+  font-style: normal;
+  margin-top: 8px;
+  padding-right: 40px;
+}
+
+/* ---------- 身份切换 ---------- */
+
+.role-switch {
+  margin-top: 2px;
+}
+
+.chip-active {
+  background: color-mix(in srgb, var(--primary) 22%, #ffffff) !important;
+  border-color: var(--primary) !important;
+  font-weight: 700;
+}
+
+.filter-chips button.chip-on {
+  background: color-mix(in srgb, var(--primary) 18%, #ffffff);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ---------- 录入表单 ---------- */
+
+.field-grid .field-wide {
+  grid-column: 1 / -1;
+}
+
+.req {
+  color: #e11d48;
+}
+
+.field-error {
+  color: #e11d48;
+  font-size: 12px;
+  font-style: normal;
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: #e11d48;
+  background: #fff5f6;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.sample-fill {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.cancel-edit {
+  color: #b45309;
+  border-color: #fcd34d;
+}
+
+.readonly-notice {
+  display: grid;
+  gap: 8px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  color: #526070;
+  background: #f8fafc;
+  line-height: 1.7;
+}
+
+.warn-text {
+  color: #b45309;
+}
+
+/* ---------- 记录卡片 ---------- */
+
+.record-card {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  padding: 0;
+  overflow: hidden;
+}
+
+.record-card.is-editing {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 25%, #ffffff);
+}
+
+.record-main {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+}
+
+.record-summary {
+  cursor: pointer;
+  min-width: 0;
+}
+
+.record-index {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--primary);
+  font-weight: 800;
+  border: none;
+  padding: 0;
+  min-height: 0;
+}
+
+.record-card.expanded .record-index {
+  background: var(--accent);
+}
+
+.record-card h3 {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.record-card p {
+  margin-bottom: 0;
+  color: #526070;
+  line-height: 1.6;
+}
+
+.sample-tag,
+.editing-tag {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.sample-tag {
+  background: color-mix(in srgb, var(--accent) 14%, #ffffff);
+  color: var(--accent);
+}
+
+.editing-tag {
+  background: color-mix(in srgb, var(--primary) 14%, #ffffff);
+  color: var(--primary);
+}
+
+.record-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.risk-stable {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.risk-watch {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.risk-mid {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.risk-high {
+  background: #ffe4e6;
+  color: #be123c;
+}
+
+.state-active {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.state-pending {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.state-archived {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.state-returned {
+  background: #ffe4e6;
+  color: #9f1239;
+}
+
+.record-detail {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  background: #fbfdff;
+}
+
+.record-detail dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin: 0 0 12px;
+}
+
+.record-detail dt {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.record-detail dd {
+  margin: 0;
+  line-height: 1.7;
+  color: #172033;
+  white-space: pre-wrap;
+}
+
+.record-meta {
+  font-size: 12px;
+}
+
+.record-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-sm {
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.btn-approve {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-reject {
+  border-color: #fb7185;
+  color: #be123c;
+}
+
+.action-hint {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  color: #64748b;
+  background: #fbfdff;
+}
+
+/* ---------- 工具栏 / 导出 ---------- */
+
+.records-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.records-toolbar select {
+  width: auto;
+  min-height: 38px;
+}
+
+.keyword-input {
+  width: 210px;
+  min-height: 38px;
+}
+
+.approval-banner {
+  margin-bottom: 20px;
+  border-left: 5px solid var(--primary);
+  color: #526070;
+}
+
+/* ---------- 用户管理 ---------- */
+
+.admin-panel {
+  margin-bottom: 20px;
+}
+
+.user-list {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.user-list li {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #fbfdff;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.self-tag {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, #ffffff);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.add-user {
+  display: grid;
+  grid-template-columns: 1fr 160px auto;
+  gap: 10px;
+}
+
+/* ---------- Toast ---------- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.22);
+  z-index: 50;
+  max-width: calc(100% - 40px);
+}
+
+.toast-ok {
+  background: var(--accent);
+}
+
+.toast-error {
+  background: #e11d48;
+}
+
+@media (max-width: 860px) {
+  .record-detail dl {
+    grid-template-columns: 1fr;
+  }
+
+  .record-main {
+    grid-template-columns: 46px 1fr;
+  }
+
+  .record-badges {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .user-list li,
+  .add-user {
+    grid-template-columns: 1fr;
+  }
+
+  .keyword-input {
+    width: 100%;
   }
 }
